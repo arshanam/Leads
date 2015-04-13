@@ -1,0 +1,21 @@
+title = "Profile"
+url = "/profile"
+layout = "single"
+hidden = "0"
+
+[session]
+security = "user"
+==
+<div class="section-header">
+    <h2 class="section-title text-center wow fadeInDown">Profile</h2>
+    <p class="text-center wow fadeInDown">Edit you profile details below</p>
+</div>
+<div class="row">
+{% if user %}
+    <a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+    <p>Hello {{ user.name }}</p>
+    {% partial 'account/profile' %}
+{% else %}
+    <p>Nobody is logged in</p>
+{% endif %}
+</div>

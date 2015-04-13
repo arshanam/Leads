@@ -1,0 +1,45 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+
+    location:
+        label: appsauces.leads::lang.leads.location
+        span: left
+
+    extension:
+        label: appsauces.leads::lang.leads.extension
+        span: right
+
+    date:
+        label: appsauces.leads::lang.leads.date
+        span: left
+
+    time:
+        label: appsauces.leads::lang.leads.time
+        span: right
+
+    duration:
+        label: appsauces.leads::lang.leads.duration
+        span: left
+
+    direction:
+        label: appsauces.leads::lang.leads.direction
+        span: right
+
+    phone:
+        label: appsauces.leads::lang.leads.phone
+        span: left
+
+    dialplan:
+        label: appsauces.leads::lang.leads.dialplan
+        span: right
+
+    is_active:
+        label: appsauces.leads::lang.leads.is_active
+        type: checkbox
+        span: left

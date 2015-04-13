@@ -1,0 +1,28 @@
+title = "Register"
+url = "/register"
+layout = "default"
+hidden = "0"
+
+[account register]
+redirect = "account/activate"
+paramCode = "code"
+==
+<div class="signin-container">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Welcome to GreyOwl" />
+                            <h4>Sign up to <small>GreyOwl</small></h4>
+                        </div>
+                        {% component 'register' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

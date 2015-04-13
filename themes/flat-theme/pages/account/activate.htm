@@ -1,0 +1,36 @@
+title = "Activate"
+url = "/activate"
+layout = "default"
+hidden = "0"
+==
+<div class="signin-container">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Activate your account" />
+                            <h4>Account<small>activation</small></h4>
+                        </div>
+
+                        <div class="signin-form">
+                            {% if input('code') is empty and not user.is_activated%}
+                                <div class="service-item" style="color: #34495e;">
+                                    <div class="service-desc">
+                                        <h5>Your email address has not yet been verified.</h5>
+                                        <p>You should verify your account otherwise it may be deleted. Please check your email to verify.</p>
+                                    </div>
+                                </div>
+                                <a class="btn btn-sm navbar-btn btn-inverse" href="javascript:;" data-request="onSendActivationEmail">Send the verification email again</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

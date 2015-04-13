@@ -1,0 +1,12 @@
+[viewBag]
+==
+{% if not user %}
+    <h3>Signup Now!</h3>
+    {% partial __SELF__ ~ '::register' %}
+{% else %}
+
+    {% partial __SELF__ ~ '::activation_check' %}
+
+    {% partial __SELF__ ~ '::update' %}
+
+{% endif %}

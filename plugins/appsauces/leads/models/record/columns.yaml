@@ -1,0 +1,57 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: appsauces.leads::lang.leads.id
+        invisible: true
+
+    location:
+        label: appsauces.leads::lang.leads.location
+        searchable: true
+
+    extension:
+        label: appsauces.leads::lang.leads.extension
+        searchable: true
+        invisible: true
+
+    date:
+        label: appsauces.leads::lang.leads.date
+        searchable: true
+
+    time:
+        label: appsauces.leads::lang.leads.time
+        searchable: true
+        invisible: true
+
+    duration:
+        label: appsauces.leads::lang.leads.duration
+        searchable: true
+        invisible: true
+
+    direction:
+        label: appsauces.leads::lang.leads.direction
+        searchable: true
+
+    phone:
+        label: appsauces.leads::lang.user.phone
+        searchable: true
+        invisible: true
+
+    created_at:
+        label: appsauces.leads::lang.leads.created_at
+
+    uploaded_at:
+        label: appsauces.leads::lang.leads.uploaded_at
+
+    dialplan:
+        label: appsauces.leads::lang.leads.dialplan
+        searchable: true
+        invisible: true
+
+    is_active:
+        label: appsauces.user::lang.leads.is_active
+        searchable: true
+        invisible: true
