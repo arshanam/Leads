@@ -1,0 +1,33 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: appsauces.leads::lang.leads.id
+        invisible: true
+
+    user:
+        label: appsauces.leads::lang.leads.user
+        relation: user
+        searchable: true
+        select: name
+
+    filename:
+        label: appsauces.leads::lang.leads.filename
+        searchable: true
+
+    path:
+        label: appsauces.leads::lang.leads.path
+        searchable: true
+        invisible: true
+
+    created_at:
+        label: appsauces.leads::lang.leads.created_at
+        type: datetime
+
+    is_active:
+        label: appsauces.leads::lang.leads.is_active
+        searchable: true
+        invisible: true

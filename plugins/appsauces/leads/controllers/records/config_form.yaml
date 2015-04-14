@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Record
+
+# Model Form Field configuration
+form: $/appsauces/leads/models/record/fields.yaml
+
+# Model Class name
+modelClass: Appsauces\Leads\Models\Record
+
+# Default redirect location
+defaultRedirect: appsauces/leads/records
+
+# Create page
+create:
+    title: Upload Record
+    redirect: appsauces/leads/records/update/:id
+    redirectClose: appsauces/leads/records
+
+# Update page
+update:
+    title: Edit Record
+    redirect: appsauces/leads/records
+    redirectClose: appsauces/leads/records
+
+# Preview page
+preview:
+    title: Preview Record

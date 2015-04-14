@@ -1,0 +1,18 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+
+        user:
+           label: appsauces.leads::lang.leads.user
+           type: dropdown
+           span: left
+           placeholder: appsauces.leads::lang.leads.select_user
+
+        file:
+            label: appsauces.leads::lang.leads.file
+            type: fileupload
+            mode: file
+            span: right
