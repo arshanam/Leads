@@ -17,11 +17,21 @@ security = "all"
     {% partial "nav-single" %}
 </header><!--/header-->
 
-<section id="cta">
-    <div class="container">
+<section id="">
         {% page %}
-    </div>
 </section>
+
+<section id="get-in-touch">
+    <div class="container">
+        <div class="section-header">
+            {% content 'precontact.htm' %}
+        </div>
+    </div>
+</section><!--/#get-in-touch-->
+
+<section id="contact">
+    {% partial "contact" %}
+</section><!--/#contact-->
 
 <footer id="footer">
     {% partial "footer" %}
