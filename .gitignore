@@ -14,3 +14,4 @@ selenium.php
 .env
 .env.*.php
 .env.php
+config/app.php

@@ -29,7 +29,7 @@ return array(
     |
     */
 
-    'url' => env('APP_URL','http://greyowl.herokuapp.com'),
+    'url' => env('APP_URL','http://localhost/Leads/'),
 
     /*
     |--------------------------------------------------------------------------
