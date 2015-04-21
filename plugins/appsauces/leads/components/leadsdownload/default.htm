@@ -1,0 +1,4 @@
+
+{% for file in leadsDownload.files %}
+    <a target="_blank" href="{{ file.path }}">{{ file.filename }}</a>
+{% endfor %}

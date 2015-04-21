@@ -1,0 +1,28 @@
+title = "Register"
+url = "/register"
+layout = "single"
+hidden = "0"
+
+[account]
+paramCode = "code"
+
+[session]
+security = "all"
+redirect = "home"
+==
+{% if not user %}
+<section id="register" style="background: #DDD">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title text-center wow fadeInDown">Join Us</h2>
+            <p class="text-center wow fadeInDown">Join us today and be part of the excitement!</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 wow fadeInLeft">
+                <img class="img-responsive" src="{{ 'assets/images/main-feature.png'|theme }}" alt="">
+            </div>
+            {% partial account ~ '::register' %}
+        </div>
+    </div>
+</section>
+{% endif %}<!--/#register-->

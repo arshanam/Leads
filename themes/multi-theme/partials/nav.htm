@@ -25,13 +25,14 @@ security = "all"
                 <li class="scroll"><a href="#services">Services</a></li>
                 {% else %}
                 <li class="scroll"><a href="/profile">Profile</a></li>
+                <li class="scroll"><a href="/myleads">My Leads</a></li>
                 {% endif %}
                 <li class="scroll"><a href="#pricing">Pricing</a></li>
                 <li class="scroll"><a href="#get-in-touch">Contact</a></li>  
                 {% if  user %}
                 <li class="scroll"><a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a></li>
                 {% else %}
-                <li class="hidden-xs hidden-sm"><a href="#" style="padding-top: 34px; padding-bottom: 25px; border-top: 0;">
+                <li class="hidden-xs hidden-sm"><a href="/signin" style="padding-top: 34px; padding-bottom: 25px; border-top: 0;">
                     <span class="btn btn-primary" style="margin: 0;">Sign in</span>
                 </a></li>
                 <li class="hidden-md hidden-lg"><a href="#">

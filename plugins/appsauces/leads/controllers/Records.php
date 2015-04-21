@@ -21,6 +21,6 @@ class Records extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Appsauces.Leads', 'leads', 'records');
-    }
+    } 
 
 }

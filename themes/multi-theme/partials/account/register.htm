@@ -9,7 +9,6 @@ paramCode = "code"
 security = "all"
 ==
 <div class="col-sm-6 wow fadeInRight" id="registerForm">
-     <h3>Register</h3>
     <div class="signin-form">
     {% if input('code') is empty %}
         <form data-request="onRegister">
@@ -49,8 +48,7 @@ security = "all"
             <button type="submit" class="btn btn-block btn-info">Sign Up</button>
         </form>
         <div class="signin-link">
-            By signing up you agree to <a href="/Leads/terms">Terms of Use</a> and <a href="/Leads/privacy">Privacy Policy</a>
-            <!-- <p>Already a member? <a href="#" id="showLogin">Click here</a></p> -->
+            By signing up you agree to <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a>
         </div>
          {% else %}
             <form data-request="onActivate" data-request-success="window.location.href = '/'">

@@ -33,6 +33,13 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerComponents()
+    {
+        return [
+            'Appsauces\Leads\Components\LeadsDownload' => 'leadsDownload'
+        ];
+    }
+
     public function registerNavigation()
     {
         return [

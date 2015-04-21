@@ -2,6 +2,7 @@
 
 use Form;
 use Model;
+use Input;
 use RainLab\User\Models\User as User;
 
 /**
@@ -45,38 +46,30 @@ class Record extends Model
         'file' => ['System\Models\File']
     ];
 
-    /**
-     * @var bool Indicates if the model should be timestamped.
-     */
-    public $timestamps = false;
 
-    /**
-     * @var array Cache for nameList() method
-     */
-    protected static $nameList = [];
-
-    public function beforeSave()
-    {
-        $this->path = $this->file->getPath();
-        $this->filename = $this->file->file_name;
+    public function afterSave(){
+        if($this->file){
+            $this->path = $this->file->getPath();
+            $this->filename =$this->file->file_name;
+        }
     }
 
-    public static function getNameList($userId)
+    /**
+     * Returns the public image file path to this user's avatar.
+     */
+    public function getFilePath()
     {
-        if (isset(self::$nameList[$userId]))
-            return self::$nameList[$userId];
 
-        return self::$nameList[$userId] = self::whereUserId($userId)->lists('name', 'id');
-    }
-
-    public static function formSelect($name, $userId = null, $selectedValue = null, $options = [])
-    {
-        return Form::select($name, self::getNameList($userId), $selectedValue, $options);
+        if ($this->file)
+            return $this->file->getPath();
+        else
+            return 'no file found';
     }
 
     public function getUserOptions()
     {
         return User::where('is_activated', '=', 1)->lists('name','id');
     }
+
 
 }

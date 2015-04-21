@@ -1,0 +1,32 @@
+title = "Signin"
+url = "/signin"
+layout = "single"
+hidden = "0"
+
+[account]
+redirect = "profile"
+paramCode = "code"
+
+[session]
+security = "all"
+==
+{% if not user %}
+<section id="register" style="background: #DDD">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title text-center wow fadeInDown">Sign in</h2>
+            <p class="text-center wow fadeInDown">Login to view you profile and to download your leads</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 wow fadeInLeft">
+                <img class="img-responsive" src="{{ 'assets/images/main-feature.png'|theme }}" alt="">
+            </div>
+            {% partial account ~ '::signin' %}
+        </div>
+    </div>
+</section>
+    
+{% else %}
+    {% partial account ~ '::activation_check' %}
+
+{% endif %}<!--/#register-->

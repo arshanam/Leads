@@ -9,7 +9,7 @@ return [
         'label' => 'Leads',
         'id' => 'ID',
         'filename' => 'File Name',
-        'path' => 'Path',
+        'path' => 'File Path',
         'created_at' => 'Added',
         'file' => 'File Upload',
         'user' => 'User',
