@@ -7,13 +7,12 @@ hidden = "0"
 security = "user"
 ==
 <div class="section-header">
-    <h2 class="section-title text-center wow fadeInDown">Profile</h2>
-    <p class="text-center wow fadeInDown">Edit you profile details below</p>
+    <h2 class="section-title text-center wow fadeInDown">Your Profile</h2>
+    <p class="text-center wow fadeInDown">Edit you profile details below:</p>
 </div>
 <div class="row">
 {% if user %}
-    <a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
-    <p>Hello {{ user.name }}</p>
+    <h2</h2>
     {% partial 'account/profile' %}
 {% else %}
     <p>Nobody is logged in</p>
