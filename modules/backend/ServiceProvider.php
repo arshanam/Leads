@@ -98,25 +98,8 @@ class ServiceProvider extends ModuleServiceProvider
                     'category'    => SettingsManager::CATEGORY_SYSTEM,
                     'icon'        => 'icon-paint-brush',
                     'class'       => 'Backend\Models\BrandSettings',
+                    'permissions' => ['backend.manage_branding'],
                     'order'       => 500
-                ],
-                'editor' => [
-                    'label'       => 'backend::lang.editor.menu_label',
-                    'description' => 'backend::lang.editor.menu_description',
-                    'category'    => SettingsManager::CATEGORY_MYSETTINGS,
-                    'icon'        => 'icon-code',
-                    'url'         => Backend::URL('backend/editorpreferences'),
-                    'order'       => 600,
-                    'context'     => 'mysettings'
-                ],
-                'backend_preferences' => [
-                    'label'       => 'backend::lang.backend_preferences.menu_label',
-                    'description' => 'backend::lang.backend_preferences.menu_description',
-                    'category'    => SettingsManager::CATEGORY_MYSETTINGS,
-                    'icon'        => 'icon-laptop',
-                    'class'       => 'Backend\Models\BackendPreferences',
-                    'order'       => 500,
-                    'context'     => 'mysettings'
                 ],
                 'myaccount' => [
                     'label'       => 'backend::lang.myaccount.menu_label',
@@ -124,9 +107,27 @@ class ServiceProvider extends ModuleServiceProvider
                     'category'    => SettingsManager::CATEGORY_MYSETTINGS,
                     'icon'        => 'icon-user',
                     'url'         => Backend::URL('backend/users/myaccount'),
-                    'order'       => 400,
+                    'order'       => 500,
                     'context'     => 'mysettings',
                     'keywords'    => 'backend::lang.myaccount.menu_keywords'
+                ],
+                'backend_preferences' => [
+                    'label'       => 'backend::lang.backend_preferences.menu_label',
+                    'description' => 'backend::lang.backend_preferences.menu_description',
+                    'category'    => SettingsManager::CATEGORY_MYSETTINGS,
+                    'icon'        => 'icon-laptop',
+                    'class'       => 'Backend\Models\BackendPreferences',
+                    'order'       => 510,
+                    'context'     => 'mysettings'
+                ],
+                'editor' => [
+                    'label'       => 'backend::lang.editor.menu_label',
+                    'description' => 'backend::lang.editor.menu_description',
+                    'category'    => SettingsManager::CATEGORY_MYSETTINGS,
+                    'icon'        => 'icon-code',
+                    'url'         => Backend::URL('backend/editorpreferences'),
+                    'order'       => 520,
+                    'context'     => 'mysettings'
                 ],
                 'access_logs' => [
                     'label'       => 'backend::lang.access_log.menu_label',
@@ -134,8 +135,8 @@ class ServiceProvider extends ModuleServiceProvider
                     'category'    => SettingsManager::CATEGORY_LOGS,
                     'icon'        => 'icon-lock',
                     'url'         => Backend::url('backend/accesslogs'),
-                    'permissions' => ['backend.access_admin_logs'],
-                    'order'       => 800
+                    'permissions' => ['system.access_logs'],
+                    'order'       => 920
                 ]
             ]);
         });
@@ -151,6 +152,10 @@ class ServiceProvider extends ModuleServiceProvider
                 ],
                 'backend.manage_users' => [
                     'label' => 'system::lang.permissions.manage_other_administrators',
+                    'tab'   => 'system::lang.permissions.name'
+                ],
+                'backend.manage_branding' => [
+                    'label' => 'system::lang.permissions.manage_branding',
                     'tab'   => 'system::lang.permissions.name'
                 ]
             ]);
@@ -178,6 +183,7 @@ class ServiceProvider extends ModuleServiceProvider
             $combiner->registerBundle('~/modules/backend/formwidgets/datepicker/assets/js/build.js');
             $combiner->registerBundle('~/modules/backend/formwidgets/richeditor/assets/less/richeditor.less');
             $combiner->registerBundle('~/modules/backend/formwidgets/richeditor/assets/js/build.js');
+            $combiner->registerBundle('~/modules/backend/formwidgets/codeeditor/assets/less/codeeditor.less');
         });
     }
 

@@ -5,18 +5,8 @@
 
     var RelationBehavior = function() {
 
-        this.clickManageListRecord = function(recordId, relationField, sessionKey) {
-            var oldPopup = $('#relationManagePopup')
-
-            $.request('onRelationClickManageList', {
-                data: {
-                    'record_id': recordId,
-                    '_relation_field': relationField,
-                    '_session_key': sessionKey
-                }
-            })
-
-            oldPopup.popup('hide')
+        this.toggleListCheckbox = function(el) {
+            $(el).closest('.control-list').listWidget('toggleChecked', [el])
         }
 
         this.clickViewListRecord = function(recordId, relationField, sessionKey) {
@@ -31,6 +21,20 @@
                     '_session_key': sessionKey
                 }
             })
+        }
+
+        this.clickManageListRecord = function(recordId, relationField, sessionKey) {
+            var oldPopup = $('#relationManagePopup')
+
+            $.request('onRelationClickManageList', {
+                data: {
+                    'record_id': recordId,
+                    '_relation_field': relationField,
+                    '_session_key': sessionKey
+                }
+            })
+
+            oldPopup.popup('hide')
         }
 
         this.clickManagePivotListRecord = function(foreignId, relationField, sessionKey) {
@@ -49,6 +53,20 @@
                     '_relation_field': relationField,
                     '_session_key': sessionKey
                 }
+            })
+        }
+
+        /*
+         * This function transfers the supplied variables as hidden form inputs,
+         * to any popup that is spawned within the supplied container. The spawned 
+         * popup must contain a form element.
+         */
+        this.bindToPopups = function(container, vars) {
+            $(container).on('show.oc.popup', function(event, $trigger, $modal){
+                var $form = $('form', $modal)
+                $.each(vars, function(name, value){
+                    $form.prepend($('<input />').attr({ type: 'hidden', name: name, value: value }))
+                })
             })
         }
 

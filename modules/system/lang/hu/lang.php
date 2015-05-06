@@ -13,6 +13,7 @@ return [
         'fa' => 'Perzsa',
         'fr' => 'Francia',
         'hu' => 'Magyar',
+        'id' => 'Indonéz',
         'it' => 'Olasz',
         'ja' => 'Japán',
         'nl' => 'Holland',
@@ -21,7 +22,8 @@ return [
         'ro' => 'Román',
         'ru' => 'Orosz',
         'se' => 'Svéd',
-        'tr' => 'Török'
+        'tr' => 'Török',
+        'nb-no' => 'Norvég (Bokmål)'
     ],
     'directory' => [
         'create_fail' => 'Nem hozható létre a könyvtár: :name'
@@ -160,7 +162,7 @@ return [
     ],
     'updates' => [
         'title' => 'Frissítések kezelése',
-        'name' => 'Szoftverfrissítés',
+        'name' => 'Szoftver frissítése',
         'menu_label' => 'Frissítések',
         'menu_description' => 'A rendszer és a bővítmények frissítése, valamint új kiegészítők telepítése.',
         'check_label' => 'Frissítések keresése',
@@ -173,9 +175,10 @@ return [
         'core_build_old' => 'Jelenlegi verzió: :build',
         'core_build_new' => 'Verzió: :build',
         'core_build_new_help' => 'Elérhető a legújabb hivatalos kiadás.',
-        'core_downloading' => 'Alkalmazásfájlok letöltése...',
-        'core_extracting' => 'Alkalmazásfájlok kicsomagolása...',
+        'core_downloading' => 'Alkalmazás fájlok letöltése...',
+        'core_extracting' => 'Alkalmazás fájlok kicsomagolása...',
         'plugins' => 'Bővítmények',
+        'disabled' => 'Letiltva',
         'plugin_downloading' => 'Bővítmény letöltése: :name',
         'plugin_extracting' => 'Bővítmény kicsomagolása: :name',
         'plugin_version_none' => 'Új bővítmény',

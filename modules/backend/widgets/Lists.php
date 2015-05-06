@@ -362,30 +362,44 @@ class Lists extends WidgetBase
         }
 
         /*
-         * Include any relation constraints
-         */
-        if ($joins) {
-            foreach (array_unique($joins) as $join) {
-                /*
-                 * Apply a supplied search term for relation columns and
-                 * constrain the query only if there is something to search for
-                 */
-                $columnsToSearch = array_get($relationSearchable, $join, []);
-
-                if (count($columnsToSearch) > 0) {
-                    $query->whereHas($join, function ($_query) use ($columnsToSearch) {
-                        $_query->searchWhere($this->searchTerm, $columnsToSearch);
-                    });
-                }
-            }
-        }
-
-        /*
          * Add eager loads to the query
          */
         if ($withs) {
             $query->with(array_unique($withs));
         }
+
+        /*
+         * Apply search term
+         */
+        $query->where(function ($innerQuery) use ($primarySearchable, $relationSearchable, $joins) {
+
+            /*
+             * Search primary columns
+             */
+            if (count($primarySearchable) > 0) {
+                $innerQuery->orSearchWhere($this->searchTerm, $primarySearchable);
+            }
+
+            /*
+             * Search relation columns
+             */
+            if ($joins) {
+                foreach (array_unique($joins) as $join) {
+                    /*
+                     * Apply a supplied search term for relation columns and
+                     * constrain the query only if there is something to search for
+                     */
+                    $columnsToSearch = array_get($relationSearchable, $join, []);
+
+                    if (count($columnsToSearch) > 0) {
+                        $innerQuery->orWhereHas($join, function ($_query) use ($columnsToSearch) {
+                            $_query->searchWhere($this->searchTerm, $columnsToSearch);
+                        });
+                    }
+                }
+            }
+
+        });
 
         /*
          * Custom select queries
@@ -426,15 +440,6 @@ class Lists extends WidgetBase
                 $sqlSelect = $this->parseTableName($column->sqlSelect, $primaryTable);
                 $selects[] = DbDongle::raw($sqlSelect . ' as '. $alias);
             }
-        }
-
-        /*
-         * Apply a supplied search term for primary columns
-         */
-        if (count($primarySearchable) > 0) {
-            $query->orWhere(function ($innerQuery) use ($primarySearchable) {
-                $innerQuery->searchWhere($this->searchTerm, $primarySearchable);
-            });
         }
 
         /*
@@ -658,6 +663,12 @@ class Lists extends WidgetBase
         }
         else {
             $label = studly_case($name);
+        }
+
+        if (strpos($name, '[') !== false && strpos($name, ']') !== false) {
+            $config['valueFrom'] = $name;
+            $config['sortable'] = false;
+            $config['searchable'] = false;
         }
 
         $columnType = isset($config['type']) ? $config['type'] : null;

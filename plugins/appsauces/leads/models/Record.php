@@ -46,14 +46,6 @@ class Record extends Model
         'file' => ['System\Models\File']
     ];
 
-
-    public function afterSave(){
-        if($this->file){
-            $this->path = $this->file->getPath();
-            $this->filename =$this->file->file_name;
-        }
-    }
-
     /**
      * Returns the public image file path to this user's avatar.
      */

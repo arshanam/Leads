@@ -1,4 +1,28 @@
-
-{% for file in leadsDownload.files %}
-    <a target="_blank" href="{{ file.path }}">{{ file.filename }}</a>
-{% endfor %}
+{% set records = __SELF__.records %}
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>
+            Filename
+          </th>
+          <th>
+            Date Uploaded
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for record in records %}
+		<tr>
+		  <th class="text-nowrap" scope="row">{{ record['attributes']['id'] }}</th>
+		  <td>{{ record['file']['attributes']['file_name'] }}</td>
+		  <td>{{ record['file']['attributes']['updated_at'] }}</td>
+		  <td><a class="btn btn-primary" target="_blank" href="{{ record.filePath }}">Open</a></td>
+		</tr>
+		{% endfor %}  
+      </tbody>
+    </table>
+</div>
+{{ records | raw }}

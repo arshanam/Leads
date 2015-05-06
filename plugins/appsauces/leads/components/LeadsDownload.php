@@ -15,15 +15,15 @@ class LeadsDownload extends ComponentBase
         ];
     }
 
+    public function records()
+    {
+        $user = $this->user();
+        return Records::where('user_id', '=', $user->id)->paginate(15);
+    }
+
     public function defineProperties()
     {
         return [];
-    }
-
-    public function files()
-    {
-        $user = $this->user();
-        return Records::where('user_id', '=', $user->id)->get();
     }
 
     /**
@@ -36,4 +36,5 @@ class LeadsDownload extends ComponentBase
 
         return Auth::getUser();
     }
+
 }

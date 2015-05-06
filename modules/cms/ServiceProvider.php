@@ -138,7 +138,8 @@ class ServiceProvider extends ModuleServiceProvider
                     'category'    => SettingsManager::CATEGORY_CMS,
                     'icon'        => 'icon-picture-o',
                     'url'         => Backend::URL('cms/themes'),
-                    'order'       => 200
+                    'permissions' => ['system.manage_themes'],
+                    'order'       => 300
                 ],
                 'maintenance_settings' => [
                     'label'       => 'cms::lang.maintenance.settings_menu',
@@ -146,6 +147,7 @@ class ServiceProvider extends ModuleServiceProvider
                     'category'    => SettingsManager::CATEGORY_CMS,
                     'icon'        => 'icon-plug',
                     'class'       => 'Cms\Models\MaintenanceSettings',
+                    'permissions' => ['system.manage_themes'],
                     'order'       => 400
                 ],
             ]);

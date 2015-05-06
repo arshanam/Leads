@@ -14,15 +14,6 @@ columns:
         searchable: true
         select: name
 
-    filename:
-        label: appsauces.leads::lang.leads.filename
-        searchable: true
-
-    path:
-        label: appsauces.leads::lang.leads.path
-        searchable: true
-        invisible: true
-
     created_at:
         label: appsauces.leads::lang.leads.created_at
         type: datetime
